@@ -15,9 +15,9 @@ module.exports = function(app) {
   // GET route for getting all of the burgers
   app.get("/api/burgers", function(req, res) {
     // findAll returns all entries for a table when used with no options
-    db.burgers.findAll({}).then(function(dbburgers) {
+    db.Burger.findAll({}).then(function(dbBurger) {
       // We have access to the burgers as an argument inside of the callback function
-      res.json(dbburgers);
+      res.json(dbBurger);
     });
   });
 
@@ -26,12 +26,12 @@ module.exports = function(app) {
     // create takes an argument of an object describing the item we want to
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property
-    db.burgers.create({
+    db.Burger.create({
       text: req.body.text,
       complete: req.body.complete
-    }).then(function(dbburgers) {
+    }).then(function(dbBurger) {
       // We have access to the new todo as an argument inside of the callback function
-      res.json(dbburgers);
+      res.json(dbBurger);
     });
   });
 
@@ -39,12 +39,12 @@ module.exports = function(app) {
   // req.params.id
   app.delete("/api/burgers/:id", function(req, res) {
     // We just have to specify which todo we want to destroy with "where"
-    db.burgers.destroy({
+    db.Burger.destroy({
       where: {
         id: req.params.id
       }
-    }).then(function(dbburgers) {
-      res.json(dbburgers);
+    }).then(function(dbBurger) {
+      res.json(dbBurger);
     });
 
   });
@@ -53,15 +53,15 @@ module.exports = function(app) {
   app.put("/api/burgers", function(req, res) {
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
-    db.Todo.update({
+    db.Burger.update({
       text: req.body.text,
       complete: req.body.complete
     }, {
       where: {
         id: req.body.id
       }
-    }).then(function(dbburgers) {
-      res.json(dbburgers);
+    }).then(function(dbBurger) {
+      res.json(dbBurger);
     });
   });
 
