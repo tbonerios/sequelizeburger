@@ -2,20 +2,23 @@
   "development": {
     "username": "root",
     "password": "Bubbacup50",
-    "database": "burgers_db",
+    "database": "burger",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "define": {
+        "timestamps": false
+    }
   },
   "test": {
     "username": "root",
-    "password": "Bubbacup50",
+    "password": null,
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "Bubbacup50",
+    "password": null,
     "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql"
